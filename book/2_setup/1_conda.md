@@ -136,7 +136,7 @@ You should now see `(base)` at the beginning of your command prompt.
 
 Initialize conda so it works automatically in new terminal sessions:
 ```bash
-conda init
+conda init --all
 ```
 
 **Step 4: Verify your installation**
@@ -192,7 +192,7 @@ You should now see `(base)` at the beginning of your command prompt.
 Initialize conda so it works automatically in new terminal sessions:
 
 ```bash
-conda init
+conda init --all
 ```
 
 Restart your Terminal afterwards if prompted.
@@ -246,7 +246,7 @@ You should now see `(base)` at the beginning of your command prompt.
 
 Initialize conda so it works automatically in new terminal sessions:
 ```bash
-conda init
+conda init --all
 ```
 
 **Step 4: Verify your installation**
@@ -673,15 +673,19 @@ One of the most important steps in professional workflows is **documenting your 
 Export an environment to a file (to your current working directory):
 
 ```bash
-conda env export --name sds-env > sds-env.yml
+conda export --name sds-env > sds-env.yml
 ```
+For cross-platform (i.e. MacOS - Windows) sharing, add the --from-history flag.
+
+```bash
+conda export --name sds-env --from-history > sds-env.yml
 
 This file records package names and versions so others can recreate the same setup.
 
 Recreate an environment from such a file:
 
 ```bash
-conda env create --name sds-env-copy --file sds-env.yml
+conda create --name sds-env-copy --file sds-env.yml
 ```
 
 ``` {admonition} Tip
@@ -712,7 +716,7 @@ conda list
 python analysis.py
 
 # export the environment for reproducibility
-conda env export > environment.yml
+conda export > environment.yml
 
 # deactivate when you are done
 conda deactivate
